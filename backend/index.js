@@ -21,6 +21,12 @@ app.use(multer(storage).single('image'))
 app.use(express.urlencoded({extended : false}))
 app.use(express.json())
 
+// Routes
+app.use('/api/gallery', require('./routes/gallery'))
+
+// Static Files
+app.use(express.static(path.join(__dirname, 'public')))
+
 // Start server
 app.listen(app.get('port'), () => {
     console.log('Server on port ',app.get('port'));
