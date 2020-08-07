@@ -1,5 +1,10 @@
 import './styles/app.css'
-import ImageService from './services/ImageService'
+import UI from './UI'
+
+document.addEventListener('DOMContentLoaded', () => {
+    const ui = new UI()
+    ui.renderImages()
+})
 
 const form = document.getElementById('imageForm')
 form.addEventListener('submit', ev => {
@@ -14,6 +19,6 @@ form.addEventListener('submit', ev => {
     formData.append('category', category)
     formData.append('image', image[0])
 
-    const imageService = new ImageService()
-    imageService.postImage(formData)
+    const ui = new UI()
+    ui.addNewImage(formData)
 })
