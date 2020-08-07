@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const {title, category} = req.body
-    const newImage = new Image({title, category})
+    const imagePath = `/uploads/${req.file.filename}`
+    const newImage = new Image({title, category, imagePath})
     await newImage.save()
     res.json({message: 'Image saved'})
 })
