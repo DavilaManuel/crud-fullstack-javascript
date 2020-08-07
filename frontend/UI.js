@@ -44,11 +44,22 @@ export default class UI {
         document.getElementById('imageForm').reset()
     }
 
-    renderMessage() {
+    renderMessage(message, color, timing) {
+        const div = document.createElement('div')
+        div.className = `alert alert-${color} message`
+        div.appendChild(document.createTextNode(message))
 
+        const container = document.querySelector('.col-md-4')
+        const imageForm = document.getElementById('imageForm')
+
+        container.insertBefore(div, imageForm)
+        setTimeout(() => {
+            document.querySelector('.message').remove()
+        }, timing)
     }
 
-    deleteImage() {
-
+    async deleteImage(imageId) {
+        await imageService.deleteImage(imageId)
+        this.renderImages()
     }
 }

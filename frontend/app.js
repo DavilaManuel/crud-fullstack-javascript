@@ -21,4 +21,17 @@ form.addEventListener('submit', ev => {
 
     const ui = new UI()
     ui.addNewImage(formData)
+
+    ui.renderMessage('New book add', 'success', 3000)
+})
+
+const imagesCard = document.getElementById('images-cards')
+imagesCard.addEventListener('click', ev => {
+    ev.preventDefault()
+
+    if(ev.target.classList.contains('delete')) {
+        const ui = new UI()
+        ui.deleteImage(ev.target.getAttribute('_id'))
+        ui.renderMessage('Book deleted', 'danger', 3000)
+    }
 })

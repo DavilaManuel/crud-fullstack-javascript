@@ -1,5 +1,7 @@
 const {Router} = require('express')
 const router = Router()
+const {unlink} = require('fs-extra')
+const path = require('path')
 
 const Image = require('../models/Image')
 
@@ -17,7 +19,8 @@ router.post('/', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-    await Image.findByIdAndDelete(req.params.id)
+    const image = await Image.findByIdAndDelete(req.params.id)
+    unlink(path.resolve('./backend/public' + image.imagePath))
     res.json({message: 'Image deleted'})
 })
 
