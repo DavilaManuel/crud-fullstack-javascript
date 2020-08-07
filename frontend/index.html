@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Image Gallery</title>
+    <!--Bootstrap Theme Litera-->
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    <!--Animate CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a href="/" class="navbar-brand">App Gallery</a>
+        </div>
+    </nav>
+
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4">
+                <form id="imageForm" class="card card-body">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="title" placeholder="Image Title" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="category" placeholder="Category">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input class="custom-file-input" type="file" name="image" id="image">
+                            <label for="image" class="custom-file-label">Choose Image</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Save Image</button>
+                </form>
+            </div>
+            <div class="col-md-8" id="images-cards"></div>
+        </div>
+    </div>
+</body>
+</html>
