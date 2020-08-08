@@ -1,6 +1,6 @@
 export default class ImageService {
     constructor() {
-        this.URI = 'http://localhost:3000/api/gallery'
+        this.URI = '/api/gallery'
     }
 
     async getImages() {
